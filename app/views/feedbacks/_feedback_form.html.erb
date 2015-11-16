@@ -1,0 +1,37 @@
+<%=form_for [company, feedback], html: {class: 'form-horizontal', role: 'form'} do |f| %>
+    <%= fields_for client do |f_client| %>
+        <div class="form-group">
+          <%= f_client.label :phone, 'Phone number:', class: 'control-label col-sm-2' %>
+          <div class="col-sm-5">
+            <%= f_client.text_field :phone, class: 'form-control' %>
+          </div>
+        </div>
+    <% end %>
+
+    <div class="form-group">
+      <%= f.label :mark, 'Service mark:', class: 'control-label col-sm-2' %>
+      <div class="col-sm-8">
+        <label class="radio-inline"><%= f.radio_button :mark, "1" %> 1 </label>
+        <label class="radio-inline"><%= f.radio_button :mark, "2" %> 2 </label>
+        <label class="radio-inline"><%= f.radio_button :mark, "3" %> 3 </label>
+        <label class="radio-inline"><%= f.radio_button :mark, "4" %> 4 </label>
+        <label class="radio-inline"><%= f.radio_button :mark, "5" %> 5 </label>
+        <label class="radio-inline"><%= f.radio_button :mark, "6" %> 6 </label>
+        <label class="radio-inline"><%= f.radio_button :mark, "7" %> 7 </label>
+        <label class="radio-inline"><%= f.radio_button :mark, "8" %> 8 </label>
+        <label class="radio-inline"><%= f.radio_button :mark, "9" %> 9 </label>
+        <label class="radio-inline"><%= f.radio_button :mark, "10" %> 10 </label>
+      </div>
+    </div>
+    <div class="form-group">
+      <%= f.label :comment, 'Feedback:', class: 'control-label col-sm-2' %>
+      <div class="col-sm-5">
+        <%= f.text_area :comment, class: 'form-control', size: "24x6" %>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="col-sm-offset-2 col-sm-10">
+        <%= f.submit 'Create feedback', class: 'btn btn-success' %>
+      </div>
+    </div>
+<% end %>

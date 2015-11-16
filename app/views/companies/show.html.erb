@@ -1,0 +1,25 @@
+<h3 xmlns="http://www.w3.org/1999/html">Feedbacks for company: <%= @company.name %></h3>
+
+<%= render partial: 'feedbacks/feedback_form', locals: {company: @company, feedback: @feedback, client: @client} %>
+
+<table class="table tabel-hover">
+  <thead>
+    <tr>
+      <th class="col-sm-2">Date</th>
+      <th class="col-sm-1">Mark</th>
+      <th class="col-sm-5">Feedback</th>
+      <th class="col-sm-5">Resolution</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @feedbacks.each do |feedback| %>
+      <tr>
+        <td><%= feedback.created_at.strftime("%d-%m-%Y, %H-%M") %></td>
+        <td><%= feedback.mark %></td>
+        <td><%= feedback.comment %></td>
+        <td></td>
+      </tr>
+    <% end %>
+  </tbody>
+
+</table>
